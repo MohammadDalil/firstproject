@@ -13,26 +13,27 @@ namespace firstproject
 {
     public partial class AdminForm : Form
     {
-        public AdminForm(string role)
+        
+        public AdminForm()
         {
-            InitializeComponent();
-            CreateMenu();
-            userStatusLabel.Text = $"ورود با: {role}";
-            Timer timer = new Timer();
-            timer.Interval = 1000000;  // updating
-            timer.Tick += Timer_Tick;
-            timer.Start();
-        }
+           InitializeComponent();
+           CreateMenu();
+        //    userStatusLabel.Text = $"ورود با: {role}";
+        //    Timer timer = new Timer();
+        //    timer.Interval = 1000000;  // updating
+        //    timer.Tick += Timer_Tick;
+        //    timer.Start();
+        //}
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            // دریافت تاریخ و ساعت محلی به شمسی
-            PersianCalendar pc = new PersianCalendar();
-            DateTime now = DateTime.Now;
-            string date = $"{pc.GetYear(now)}/{pc.GetMonth(now):00}/{pc.GetDayOfMonth(now):00}";
-            string time = now.ToString("HH:mm:ss");
+        //private void Timer_Tick(object sender, EventArgs e)
+        //{
+        //    // دریافت تاریخ و ساعت محلی به شمسی
+        //    PersianCalendar pc = new PersianCalendar();
+        //    DateTime now = DateTime.Now;
+        //    string date = $"{pc.GetYear(now)}/{pc.GetMonth(now):00}/{pc.GetDayOfMonth(now):00}";
+        //    string time = now.ToString("HH:mm:ss");
 
-            dateTimeStatusLabel.Text = $"تاریخ: {date}  |  ساعت: {time}";
+        //    dateTimeStatusLabel.Text = $"تاریخ: {date}  |  ساعت: {time}";
         }
 
         private void logoutMenu_Click(object sender, EventArgs e)
@@ -87,14 +88,18 @@ namespace firstproject
             ToolStripMenuItem aboutMenu = new ToolStripMenuItem("درباره ما");
             ToolStripMenuItem logoutMenu = new ToolStripMenuItem("خروج");
 
+            loanMenu.DropDownItems.Add("امانت دادن کتاب", null, OpenBorrowBookForm);
+
             //// اضافه کردن زیرمنو به ورود اطلاعات
             infoMenu.DropDownItems.Add("اطلاعات کتاب‌ها", null, AddBookInfo);
             infoMenu.DropDownItems.Add("اطلاعات اعضا", null, AddMemberInfo);
             infoMenu.DropDownItems.Add("اضافه کردن فهرست عنوان(Category)", null, AddCategory);
 
+
+
             //// اضافه کردن زیرمنو به کارکنان
-            //staffMenu.DropDownItems.Add("کارکنان", null, ShowStaff);
-            //staffMenu.DropDownItems.Add("کاربران", null, ShowUsers);
+            staffMenu.DropDownItems.Add("کارکنان", null, ShowStaff);
+            staffMenu.DropDownItems.Add("کاربران", null, ShowUsers);
 
             //// اضافه کردن رویداد کلیک برای خروج
             logoutMenu.Click += logoutMenu_Click;
@@ -118,5 +123,28 @@ namespace firstproject
         {
 
         }
+
+        private void OpenBorrowBookForm(object sender, EventArgs e)
+        {
+            borrowbook borrowBookForm = new borrowbook();
+            borrowBookForm.Show();
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void ShowStaff(object sender, EventArgs e)
+        {
+            ShowStaff showStaff = new ShowStaff();
+            showStaff.Show();
+        }
+
+        private void ShowUsers(object sender, EventArgs e)
+        {
+            ShowUsers showUsers = new ShowUsers();
+            showUsers.Show();
+        }
+
     }
 }

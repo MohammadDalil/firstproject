@@ -44,6 +44,11 @@ namespace firstproject
             this.categorybook = new System.Windows.Forms.ComboBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.booksGridView = new System.Windows.Forms.DataGridView();
+            this.viewButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.newButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.booksGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -172,11 +177,57 @@ namespace firstproject
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // booksGridView
+            // 
+            this.booksGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.booksGridView.Location = new System.Drawing.Point(1, 1);
+            this.booksGridView.Name = "booksGridView";
+            this.booksGridView.Size = new System.Drawing.Size(283, 339);
+            this.booksGridView.TabIndex = 15;
+            this.booksGridView.Visible = false;
+            this.booksGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksGridView_CellClick);
+            this.booksGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksGridView_CellClick);
+            this.booksGridView.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // viewButton
+            // 
+            this.viewButton.Location = new System.Drawing.Point(341, 346);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(75, 23);
+            this.viewButton.TabIndex = 16;
+            this.viewButton.Text = "مشاهده";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(234, 346);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(75, 23);
+            this.editButton.TabIndex = 17;
+            this.editButton.Text = "ویرایش";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // newButton
+            // 
+            this.newButton.Location = new System.Drawing.Point(134, 346);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(75, 23);
+            this.newButton.TabIndex = 18;
+            this.newButton.Text = "جدید ";
+            this.newButton.UseVisualStyleBackColor = true;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
+            // 
             // AddBookInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.newButton);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.viewButton);
+            this.Controls.Add(this.booksGridView);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.categorybook);
@@ -195,6 +246,7 @@ namespace firstproject
             this.Name = "AddBookInfo";
             this.Text = "AddBookInfo";
             this.Load += new System.EventHandler(this.AddBookInfo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.booksGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +269,9 @@ namespace firstproject
         private System.Windows.Forms.ComboBox categorybook;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.DataGridView booksGridView;
+        private System.Windows.Forms.Button viewButton;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button newButton;
     }
 }

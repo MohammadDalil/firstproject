@@ -17,7 +17,13 @@ namespace firstproject
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
             //Application.Run(new loginform());
-            Application.Run(new AdminForm());
+            //Application.Run(new borrowbook());
+            //Application.Run(new AdminForm());
+            //Application.Run(new AddBookInfo());
+            //Application.Run(new AddMemberInfo());
+            Application.Run(new ShowStaff());
+            //Application.Run(new ShowUsers());
+
         }
     }
 }

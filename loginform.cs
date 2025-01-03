@@ -42,7 +42,7 @@ namespace firstproject
                 MessageBox.Show("لطفاً نام کاربری و رمز عبور را وارد کنید.");
                 return;
             }
-            string query = "SELECT * FROM users WHERE UserName = @username AND Password = @password";
+            string query = "SELECT * FROM users WHERE UserName = @username AND Passwordd = @password";
             using (SqlConnection connection = DBConnection.GetConnection())
             {
                 SqlCommand cmd = new SqlCommand(query, connection);
@@ -59,10 +59,10 @@ namespace firstproject
                         reader.Read();
                         string role = reader["UserRole"].ToString();
 
-                        if (role == "Admin")  
+                        if (role == "Administrator")  
                         {
                             MessageBox.Show("ورود موفق! خوش آمدید مدیر عزیز");
-                            AdminForm adminForm = new AdminForm(role);
+                            AdminForm adminForm = new AdminForm();
                             this.Hide();
                             adminForm.Show();
                         }
@@ -114,6 +114,11 @@ namespace firstproject
             {
                 // do nothing
             }
+        }
+
+        private void loginform_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

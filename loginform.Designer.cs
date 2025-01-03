@@ -137,6 +137,7 @@ namespace firstproject
             this.Controls.Add(this.label1);
             this.Name = "loginform";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.loginform_Load);
             this.MdiChildActivate += new System.EventHandler(this.Form1_MdiChildActivate);
             this.ResumeLayout(false);
             this.PerformLayout();
